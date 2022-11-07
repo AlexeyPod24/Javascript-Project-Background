@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 100px;
+}
+
+h1 {
+    font-size: 100px;
+    color: white;
+}
+
+button {
+    padding: .5em 1.5em;
+    font-size: 60px;
+    border: 7px solid black ;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+#cube {
+    width: 150px;
+    height: 150px;
+    background-color: black;
+}
+
+.bgcolor {
+    background-color: black;
+    padding: 1.5em 2em;
+    border-radius: 30px;
+    
+}
