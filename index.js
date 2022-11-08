@@ -4,51 +4,55 @@ const squares = document.querySelector('#squares');
 
 
 
+
+
+// Set defauls for when the page loads
 const defaultBackground = 'lightgray';
-
-
-// Set default background color and color name to uppger case when the page loads
 document.body.style.backgroundColor =  defaultBackground;
-colorChange.textContent = defaultBackground[0].toUpperCase() + defaultBackground.substring(1);
 colorChange.style.color = defaultBackground;
 click.style.backgroundColor = defaultBackground;
 
-// Colors
+// Set the first letter of color name to be capitalized
+colorChange.textContent = defaultBackground[0].toUpperCase() + defaultBackground.substring(1);
 
 const colors = ["red", "beige", "burlywood", "coral", "aqua", "darkcyan", "pink", "lawngreen", "fuchsia"];
 
-click.addEventListener('click', function samecolor() {
+let currentColor = null;
+
+click.addEventListener('click', function sameColor() {
   
   
     // Random Color Selector
  const ranColor = colors[Math.floor(Math.random() * colors.length)];  
 
-//  If statement to ensure that some color does not repeat two times in a row.
-// Statement reads if background color already displayed doesn't equal to the random color selected, then display
-// that color. Do the same for color name and button background.
+//  If statement to ensure that some color does not repeat two times in a row. The IF statement reads:
+//  If current color is equal to random color, run the function again. 
 
- if (document.body.style.backgroundColor != ranColor 
-        && colorChange.style.color != ranColor 
-            && click.style.backgroundColor != ranColor) {
-    document.body.style.backgroundColor = ranColor; 
-    colorChange.style.color = ranColor; 
-    click.style.backgroundColor = ranColor;
-    // If all the conditions above are met, also display the name of the random color selected with upper case first letter.
-    colorChange.textContent = ranColor[0].toUpperCase() + ranColor.substr(1);
- } else  {
-    samecolor()
+
+
+ if (currentColor === ranColor) {
+    sameColor();
+    return;
  }
- 
+
+//  Set current color to random color.
+
+currentColor = ranColor;
 
 
-// Add a square with that color
+// Change color name on click of button to current background name and captilize the
+colorChange.textContent = ranColor[0].toUpperCase() + ranColor.substr(1);
+
+// Change the colors
+document.body.style.backgroundColor = ranColor;
+colorChange.style.color = ranColor;
+click.style.backgroundColor = ranColor;
+
+ // Add a square with that color
 const newSquare = document.createElement("div");
 newSquare.style.backgroundColor = ranColor;
 newSquare.className = "test";
 squares.append(newSquare);
-
- 
- 
 })
 
 
