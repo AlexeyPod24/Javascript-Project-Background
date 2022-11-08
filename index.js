@@ -1,31 +1,51 @@
-const defaultBackground = 'lightgray';
-let colorChange = document.querySelector('#color');
+const colorChange = document.querySelector('#color');
 const click = document.querySelector('#click');
+const squares = document.querySelector('#squares');
+let cubes = [];
 
-// Set default background color and color name to uppger case when thepage loads
+
+const defaultBackground = 'lightgray';
+
+
+// Set default background color and color name to uppger case when the page loads
 document.body.style.backgroundColor =  defaultBackground;
 colorChange.textContent = defaultBackground[0].toUpperCase() + defaultBackground.substring(1);
+colorChange.style.color = defaultBackground;
+click.style.backgroundColor = defaultBackground;
 
-
+// Colors
 
 const colors = ["red", "beige", "burlywood", "coral", "aqua", "darkcyan", "pink", "lawngreen", "fuchsia"];
 
-click.addEventListener('click', function() {
+click.addEventListener('click', function samecolor() {
+  
+  
     // Random Color Selector
- const ranColor = colors[Math.floor(Math.random() * colors.length)]  
+ const ranColor = colors[Math.floor(Math.random() * colors.length)];  
 
-// Change background color, button background color, and color name to Random Color that is being displayed.
- document.body.style.backgroundColor = ranColor;
- click.style.backgroundColor = ranColor;
- colorChange.style.color = ranColor;
+//  If statement to ensure that some color does not repeat two times in a row.
+// Statement reads if background color already displayed doesn't equal to the random color selected, then display
+// that color. Do the same for color name and button background.
 
- colorChange.textContent = ranColor[0].toUpperCase() + ranColor.substr(1);
-
+ if (document.body.style.backgroundColor != ranColor 
+        && colorChange.style.color != ranColor 
+            && click.style.backgroundColor != ranColor) {
+    document.body.style.backgroundColor = ranColor; 
+    colorChange.style.color = ranColor; 
+    click.style.backgroundColor = ranColor;
+    // If all the conditions above are met, also display the name of the random color selected with upper case first letter.
+    colorChange.textContent = ranColor[0].toUpperCase() + ranColor.substr(1);
+ } else  {
+    samecolor()
+ }
  
-
  
-
-
+ function work() {
+ squares.innerHTML += `<div id="test"> </div>`
+ document.getElementById('test').style.backgroundColor = ranColor;
+ }
+ work()
+ 
 })
 
 

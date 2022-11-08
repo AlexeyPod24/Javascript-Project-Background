@@ -25,15 +25,23 @@ button {
     font-weight: 700;
 }
 
-#cube {
-    width: 150px;
-    height: 150px;
-    background-color: black;
-}
 
-.bgcolor {
+#bgcolor {
     background-color: black;
     padding: 1.5em 2em;
     border-radius: 30px;
     
+}
+
+#squares {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+#test {
+    width: 150px;
+    height: 150px;
+    background-color: blue;
+    border: 3px solid white;
 }
