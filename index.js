@@ -1,7 +1,7 @@
 const colorChange = document.querySelector('#color');
 const click = document.querySelector('#click');
 const squares = document.querySelector('#squares');
-let cubes = [];
+
 
 
 const defaultBackground = 'lightgray';
@@ -39,12 +39,15 @@ click.addEventListener('click', function samecolor() {
     samecolor()
  }
  
+
+
+// Add a square with that color
+const newSquare = document.createElement("div");
+newSquare.style.backgroundColor = ranColor;
+newSquare.className = "test";
+squares.append(newSquare);
+
  
- function work() {
- squares.innerHTML += `<div id="test"> </div>`
- document.getElementById('test').style.backgroundColor = ranColor;
- }
- work()
  
 })
 
