@@ -96,7 +96,4 @@ squares.append(newSquare);
 
 
 
-
-
-
  
