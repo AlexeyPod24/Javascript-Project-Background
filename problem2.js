@@ -40,4 +40,4 @@ console.log(findAvg(numbers))
 
 const totalSum = numbers.reduce((x, y) => x + y);
 
-console.log(totalSum)
+console.log(totalSum / numbers.length)

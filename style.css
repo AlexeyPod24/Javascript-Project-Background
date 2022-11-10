@@ -23,6 +23,7 @@ button {
     border: 7px solid black ;
     border-radius: 10px;
     font-weight: 700;
+    background: transparent;
 }
 
 
@@ -44,4 +45,8 @@ button {
     height: 150px;
     background-color: blue;
     border: 3px solid white;
+}
+
+#color {
+    text-transform: capitalize;
 }

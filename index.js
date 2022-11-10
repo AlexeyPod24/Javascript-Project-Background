@@ -10,43 +10,45 @@ const squares = document.querySelector('#squares');
 const defaultBackground = 'lightgray';
 document.body.style.backgroundColor =  defaultBackground;
 colorChange.style.color = defaultBackground;
-click.style.backgroundColor = defaultBackground;
+// click.style.backgroundColor = defaultBackground;
 
 // Set the first letter of color name to be capitalized
-colorChange.textContent = defaultBackground[0].toUpperCase() + defaultBackground.substring(1);
+colorChange.textContent = defaultBackground
 
 const colors = ["red", "beige", "burlywood", "coral", "aqua", "darkcyan", "pink", "lawngreen", "fuchsia"];
 
-let currentColor = null;
+
 
 click.addEventListener('click', function sameColor() {
   
   
+ const filteredColors = colors.filter((value) => value !== document.body.style.backgroundColor);  
     // Random Color Selector
- const ranColor = colors[Math.floor(Math.random() * colors.length)];  
+ const ranColor = filteredColors[Math.floor(Math.random() * filteredColors.length)];  
 
 //  If statement to ensure that some color does not repeat two times in a row. The IF statement reads:
 //  If current color is equal to random color, run the function again. 
 
 
 
- if (currentColor === ranColor) {
-    sameColor();
-    return;
- }
+//  if (currentColor === ranColor) {
+//     sameColor();
+//     return;
+//  }
 
 //  Set current color to random color.
 
-currentColor = ranColor;
+
 
 
 // Change color name on click of button to current background name and captilize the
-colorChange.textContent = ranColor[0].toUpperCase() + ranColor.substr(1);
+colorChange.textContent = ranColor
+// colorChange.textContent = ranColor[0].toUpperCase() + ranColor.substr(1);
 
 // Change the colors
 document.body.style.backgroundColor = ranColor;
 colorChange.style.color = ranColor;
-click.style.backgroundColor = ranColor;
+// click.style.backgroundColor = ranColor;
 
  // Add a square with that color
 const newSquare = document.createElement("div");
